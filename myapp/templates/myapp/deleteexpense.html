@@ -1,0 +1,20 @@
+<!-- myapp/templates/myapp/delete_expense.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Expense</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <h1>Delete Expense</h1>
+    <p>Are you sure you want to delete the expense of {{ expense.amount }} for the trip package {{ expense.trip_package.name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'viewexpenses' %}">Cancel</a>
+</body>
+</html>

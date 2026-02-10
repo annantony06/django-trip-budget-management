@@ -1,0 +1,20 @@
+<!-- myapp/templates/staff/staff_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Members</title>
+</head>
+<body>
+    <h1>Staff Members</h1>
+    <ul>
+        {% for staff_member in staff_members %}
+            <li>{{ staff_member.username }}</li>  <!-- Adjust according to your Staff model -->
+        {% empty %}
+            <li>No staff members found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'staffdashboard' %}">Back to Dashboard</a>
+</body>
+</html>

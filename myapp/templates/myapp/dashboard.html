@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% load static %}  <!-- Load static files -->
+    <link rel="stylesheet" href="{% static 'myapp/augstyle.css' %}">  <!-- Use static tag for CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light background for contrast */
+        }
+        .header {
+            background: #000; /* Black background */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Space between cards */
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            text-align: center; /* Center text in cards */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarge card on hover */
+        }
+        h1 {
+            margin: 0;
+        }
+        h2 {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #000; /* Black color for links */
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+            color: #555; /* Dark gray on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Your Dashboard</h1>
+    </div>
+    
+    <div class="grid-container">
+        <div class="card">
+            <h2>Trip Package</h2>
+            <p>Manage and explore different trip packages.</p>
+            <a href="{% url 'myapp:trip_packages' %}">view Trip Packages</a>
+        </div>
+        
+        <div class="card">
+            <h2>Companion</h2>
+            <p>Find and connect with travel companions.</p>
+            <a href="{% url 'myapp:add_companion' %}">Add Companion</a> 
+        </div>
+        
+        <div class="card">
+            <h2>Expense</h2>
+            <p>Track and manage your travel expenses.</p>
+            <a href="{% url 'myapp:view_expenses' %}">view Expenses</a>
+        </div>
+        
+        <div class="card">
+            <h2>Budgeting</h2>
+            <p>Plan your budget effectively.</p>
+            <a href="{% url 'myapp:view_budget' %}">view budget</a>
+        </div>
+        
+        <div class="card">
+            <h2>Offers</h2>
+            <p>Explore the latest travel offers.</p>
+            <a href="{% url 'myapp:create_offer' %}">View Offers</a>
+        </div>
+        
+        <div class="card">
+            <h2>Feedback</h2>
+            <p>Share your experience and feedback.</p>
+            <a href="{% url 'myapp:create_feedback' %}">Submit Feedback</a>
+        </div>
+        
+        <div class="card">
+            <h2>About Us</h2>
+            <p>Learn more about our platform.</p>
+            <a href="{% url 'myapp:about_us_view' %}">Read More</a>
+        </div>
+    </div>
+</body>
+</html>

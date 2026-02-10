@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{% static 'staff/style.css' %}">
+    <style>
+        .link-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .link-container a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+            background-color: #007BFF;
+        }
+        .link-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title">Welcome, Staff!</div>
+        </div>
+        <div class="form-container">
+            <p>Congratulations! You have successfully signed in.</p>
+            <p>Enjoy your management tools!</p>
+            <br>
+            <div class="link-container">
+                <a href="{% url 'staff:staff' %}">Login</a>
+                <a href="{% url 'staff:staffdashboard' %}">Dashboard</a>  <!-- Ensure this is correct -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

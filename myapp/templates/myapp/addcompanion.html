@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Companion</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <h1>Add Companion</h1>  <!-- Header for the page -->
+    <form method="post" action="{% url 'myapp:add_companion' %}">  <!-- Set the method and action here -->
+        {% csrf_token %}  <!-- Include CSRF token for security -->
+        
+        <label for="trip_package">Trip Package:</label>
+        <select id="trip_package" name="trip_package" required>
+            {% for package in trip_packages %}
+                <option value="{{ package.id }}">{{ package.name }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="relationship">Relationship:</label>
+        <input type="text" id="relationship" name="relationship" required>
+        
+        <label for="name">Companion Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="age">Companion Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <button type="submit">Add Companion</button>  <!-- Submit button -->
+    </form>
+    
+    <a href="{% url 'myapp:viewcompanion' %}">Back to Companions List</a>
+    <a href="{% url 'myapp:dashboard' %}">Dashboard</a>
+</body>
+</html>

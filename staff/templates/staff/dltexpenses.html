@@ -1,0 +1,22 @@
+<!-- staff/templates/staff/dltexpense.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Expense</title>
+    <link rel="stylesheet" href="{% static 'staff/augstyle.css' %}">
+</head>
+<body>
+    <h1>Delete Expense</h1>
+    <p>Are you sure you want to delete the following expense?</p>
+    <p><strong>Description:</strong> {{ expense.description }}</p>
+    <p><strong>Amount:</strong> {{ expense.amount }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <p><a href="{% url 'staff:expenses' %}">Cancel</a></p>
+</body>
+</html>

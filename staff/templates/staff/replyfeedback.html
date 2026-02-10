@@ -1,0 +1,28 @@
+<!-- staff/templates/staff/reply_feedback.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reply to Feedback</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'staff/augstyle.css' %}">  <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Reply to Feedback from {{ feedback.user.username }}</h1>
+    <p><strong>Original Message:</strong> {{ feedback.message }}</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="reply">Your Reply:</label>
+            <textarea name="reply" id="reply" rows="4" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Send Reply</button>
+        </div>
+    </form>
+    <a href="{% url 'staff:feedback' %}">Back to Feedback List</a>  <!-- Link back to feedback list -->
+</body>
+</html>

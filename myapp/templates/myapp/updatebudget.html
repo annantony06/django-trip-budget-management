@@ -1,0 +1,39 @@
+<!-- myapp/templates/myapp/update_budget.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Budget</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px; /* Add margin for spacing */
+        }
+        form {
+            margin-top: 20px; /* Space above the form */
+            padding: 20px;
+            border: 1px solid #ccc; /* Add a border */
+            border-radius: 8px; /* Rounded corners */
+            background-color: #f9f9f9; /* Light background */
+        }
+        h1 {
+            margin-bottom: 20px; /* Space below the heading */
+        }
+        button {
+            margin-top: 10px; /* Space above the button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Budget</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form fields -->
+        <button type="submit">Update Budget</button>
+    </form>
+    <a href="{% url 'myapp:view_budget' %}">Back to Budget</a>  <!-- Link to go back to the view budget page -->
+</body>
+</html>

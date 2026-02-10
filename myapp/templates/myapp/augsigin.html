@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/augstyle.css' %}">
+    <style>
+        .link-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .link-container a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+            background-color: #007BFF;
+        }
+        .link-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title">Welcome, User!</div>
+        </div>
+        <div class="form-container">
+            <p>Congratulations! You have successfully signed up.</p>
+            <p>Enjoy our services!</p>
+            <br>
+            <div class="link-container">
+                <a href="{% url 'dashboard' %}">Go to Dashboard</a>
+            <a href="{% url 'augllogin' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

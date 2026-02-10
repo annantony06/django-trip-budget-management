@@ -1,0 +1,21 @@
+<!-- myapp/templates/myapp/add_budget.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Budget</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <h1>Add Budget</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Budget</button>
+        
+                                                               <a href="{% url 'dashboard' %}">Dashboard</a>
+    </form>
+</body>
+</html>

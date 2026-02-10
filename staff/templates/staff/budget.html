@@ -1,0 +1,35 @@
+<!-- templates/staff/budget.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Overview</title>
+    <link rel="stylesheet" href="{% static 'staff/augstyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Overview</h1>
+        
+        <div class="budget-info">
+            <h2>Total Budget: ${{ total_budget }}</h2>
+            <h2>Total Budget User: {{ total_budget_user }}</h2>
+            <h2>Remaining Budget: ${{ remaining_budget }}</h2>
+        </div>
+
+     
+        <ul>
+            {% for budget in budgets %}
+                <li>
+                    Budget Amount: ${{ budget.total_amount }} 
+                    <a href="{% url 'staff:delete_budget' budget.id %}">Delete</a>  <!-- Link to delete confirmation -->
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p><a href="{% url 'staff:staffdashboard' %}">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

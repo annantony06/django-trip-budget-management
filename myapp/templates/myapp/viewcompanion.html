@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Companions</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <h1>Companions List</h1>
+    
+    {% if companions %}
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Trip Package</th>
+                <th>Relationship</th>
+                <th>Actions</th>
+            </tr>
+            {% for companion in companions %}
+            <tr>
+                <td>{{ companion.user.username }}</td>
+                <td>{{ companion.trip_package.name }}</td>
+                <td>{{ companion.relationship }}</td>
+                <td>
+                    <form method="post" action="{% url 'myapp:delete_companion' companion.id %}" onsubmit="return confirm('Are you sure you want to delete this companion?');">
+                        {% csrf_token %}
+                        <button type="submit">Delete Companion</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No companions found for you.</p>
+    {% endif %}
+    
+    <a href="{% url 'myapp:add_companion' %}">Add Companion</a> 
+    <a href="{% url 'myapp:dashboard' %}">Dashboard</a>
+</body>
+</html>

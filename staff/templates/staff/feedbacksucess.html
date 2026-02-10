@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Submitted</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;  /* Center the text for better presentation */
+        }
+        .alert {
+            padding: 10px;
+            margin-bottom: 20px;
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+        }
+        a {
+            text-decoration: none;  /* Remove underline from links */
+            color: #007bff;  /* Bootstrap primary color */
+        }
+        a:hover {
+            text-decoration: underline;  /* Underline on hover for better UX */
+        }
+    </style>
+</head>
+<body>
+    <div class="alert">
+        <h1>Feedback Successfully Submitted</h1>
+        <p>Thank you for your feedback! Your input is valuable to us.</p>
+    </div>
+    <p><a href="{% url 'myapp:staffdashboard' %}">Back to Dashboard</a></p>
+</body>
+</html>

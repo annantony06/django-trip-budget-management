@@ -1,0 +1,38 @@
+<!-- myapp/templates/myapp/feedback.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <h1>User Feedback</h1>
+
+    <h2>Submit Your Feedback</h2>
+    <form method="post" enctype="multipart/form-data">  <!-- Include enctype for file upload -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'myapp:feedbacksucess' %}">Submit</a>
+    </form>
+
+    <h2>Feedback from Other Users</h2>
+    <ul>
+        {% for feedback in feedbacks %}
+            <li>
+                <strong>{{ feedback.user.username }}</strong> ({{ feedback.created_at }}):
+                <p>{{ feedback.message }}</p>
+                {% if feedback.image %}
+                    <img src="{{ feedback.image.url }}" alt="Feedback Image" style="max-width: 200px;">
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No feedback available yet.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'myapp:dashboard' %}">Dashboard</a>
+</body>
+</html>

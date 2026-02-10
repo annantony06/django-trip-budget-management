@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assigned Feedback</title>
+    <link rel="stylesheet" href="{% static 'staff/style.css' %}">
+</head>
+<body>
+    <h1>Feedback Assigned to You</h1>
+
+    {% if assigned_feedback %}
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Submitted At</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in assigned_feedback %}
+                    <tr>
+                        <td>{{ feedback.user.username }}</td>  <!-- Displays the username of the user who gave the feedback -->
+                        <td>{{ feedback.created_at }}</td>    <!-- Displays the time the feedback was created -->
+                        <td>{{ feedback.message }}</td>       <!-- Displays the feedback message -->
+                        <td>{{ feedback.reply }}</td>         <!-- Displays the reply from the staff (if any) -->
+                        <td>
+                            <a href="{% url 'staff:reply_feedback' feedback.id %}">Reply</a> <!-- Link to reply action -->
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No feedback has been assigned to you yet.</p>
+    {% endif %}
+
+    <p><a href="{% url 'staff:staffdashboard' %}">Back to Staff Dashboard</a></p>
+</body>
+</html>

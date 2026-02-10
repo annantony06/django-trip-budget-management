@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    {% load static %}  <!-- Load static files -->
+    <link rel="stylesheet" href="{% static 'staff/augstyle.css' %}">  <!-- Use static tag for CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #555; /* Darker background on hover */
+        }
+        .main-content {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between cards */
+        }
+        .card {
+            background: #f4f4f4;
+            border-radius: 8px;
+            padding: 20px;
+            width: calc(33% - 20px); /* Three cards per row */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarge card on hover */
+        }
+        h2 {
+            margin-top: 0;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px); /* Two cards per row on smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .card {
+                width: 100%; /* One card per row on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Staff Dashboard</h1>
+        <nav>
+            <a href="{% url 'staff:users' %}">Users</a>  <!-- Link to users.html -->
+            <a href="{% url 'staff:expenses' %}">Expenses</a>  <!-- Link to expenses.html -->
+            <a href="{% url 'staff:budget' %}">Budgeting</a>  <!-- Link to budget.html -->
+            <a href="{% url 'staff:feedback' %}">Feedback</a>  <!-- Link to feedback.html -->
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <div class="card">
+            <h2>Users</h2>
+            <p>View and manage users assigned to you.</p>
+            <a href="{% url 'staff:users' %}">View Users</a>  <!-- Link to users.html -->
+        </div>
+        
+        <div class="card">
+            <h2>Expenses</h2>
+            <p>Track and manage expenses for your users.</p>
+            <a href="{% url 'staff:expenses' %}">View Expenses</a>  <!-- Link to expenses.html -->
+        </div>
+        
+        <div class="card">
+            <h2>Budgeting</h2>
+            <p>Plan and manage budgets for your users.</p>
+            <a href="{% url 'staff:budget' %}">View Budgets</a>  <!-- Link to budget.html -->
+        </div>
+        
+        <div class="card">
+            <h2>Feedback</h2>
+            <p>Review feedback from users.</p>
+            <a href="{% url 'staff:staffassignedfeedback' %}">View Feedback</a>  <!-- Link to feedback.html -->
+        </div>
+    </main>
+</body>
+</html>

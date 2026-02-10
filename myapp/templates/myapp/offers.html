@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Offers</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <h1>Travel Offers</h1>
+    
+    {% if offers %}
+        <ul>
+            {% for offer in offers %}
+                <li>
+                    <h2>{{ offer.title }}</h2>
+                    <p>{{ offer.description }}</p>
+                    <p>Discount: {{ offer.discount_percentage }}%</p>
+                    <p>Valid Until: {{ offer.valid_until }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No offers available at the moment.</p>
+    {% endif %}
+    
+    <a href="{% url 'myapp:dashboard' %}">Dashboard</a>
+</body>
+</html>

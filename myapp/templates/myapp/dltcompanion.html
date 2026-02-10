@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Companion</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <h1>Delete Companion</h1>
+    <p>Are you sure you want to delete the companion: <strong>{{ companion.relationship }}</strong>?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'viewcompanion' %}">Cancel</a>
+    </form>
+</body>
+</html>

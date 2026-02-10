@@ -1,0 +1,42 @@
+<!-- myapp/templates/myapp/about_us.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">  <!-- Link to your CSS file if needed -->
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Our Mission</h2>
+            <p>We are dedicated to providing the best travel experiences for our users. Our platform connects travelers with the best trip packages and companions.</p>
+        </section>
+        <section>
+            <h2>Our Values</h2>
+            <ul>
+                <li>Customer Satisfaction</li>
+                <li>Integrity</li>
+                <li>Innovation</li>
+                <li>Community</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, feel free to reach out to us at <a href="mailto:augustineantony4333@gmail.com">augustineantony4333@gmail.com</a>.</p>
+            insta:- augustineantony4333
+            fb:-augustineantony4333
+        
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+    </footer>
+    <a href="{% url 'myapp:dashboard' %}">Dashboard</a>
+</body>
+</html>

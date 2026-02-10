@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Packages</title>
+    {% load static %}  <!-- Load the static template tag library -->
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Trip Packages</h1>
+    </header>
+    <main>
+        <h2>Explore Our Trip Packages</h2>
+        <section class="packages">
+            {% for package in packages %}  <!-- Use 'packages' here -->
+                <article class="package">
+                    <h3>{{ package.name }}</h3>
+                    <p>{{ package.description }}</p>
+                    <p>Duration: {{ package.duration }} days</p>
+                    <p>Price: ${{ package.price }}</p>
+                    <p>Location: {{ package.location }}</p>
+                    <a href="{% url 'myapp:view_expenses' %}"> View Expenses </a>
+                </article>
+               
+            {% empty %}
+                <p>No trip packages available at the moment.</p>
+            {% endfor %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Trio Joy</p>
+    </footer>
+    <a href="{% url 'myapp:dashboard' %}">Dashboard</a>
+</body>
+</html>
