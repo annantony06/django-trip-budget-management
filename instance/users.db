@@ -1,8 +1,0 @@
-SQLite format 3@  .vã¯&&œÅ&Ç/tableuseruserCREATE TABLE user (
-	id INTEGER NOT NULL, 
-	email VARCHAR(150) NOT NULL, 
-	password VARCHAR(150) NOT NULL, 
-	PRIMARY KEY (id), 
-	UNIQUE (email)
-)';indexsqlite_autoindex_user_1user
-
